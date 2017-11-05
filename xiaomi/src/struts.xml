@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="xiaomi" extends="struts-default">
+
+		<action name="createImageAction" class="com.xiaomi.util.CreateImageAction">
+			<result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<action name="loginValidateAction" class="com.xiaomi.util.LoginValidateAction">
+			<result name="success">/success.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+
+		<action name="getNumberAction" class="com.xiaomi.user.action.GetNumberAction">
+			<!-- <result name="success">loginValidateAction.action</result> -->
+			   <result name="none">/UserRegister.jsp</result>  
+			  
+		</action>
+
+		<action name="userRegisterAction" class="addUserAction">
+			<result name="success" type="redirect">/success.jsp</result>
+			<result name="input">/UserRegister.jsp</result>
+		</action>
+
+	</package>
+</struts>
